@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Blogs from '../views/Blogs.vue'
 import BlogDetail from '../views/BlogDetail.vue'
 import BlogEdit from '../views/BlogEdit.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -24,8 +25,11 @@ const routes = [
   },
   {
     path: '/blog/add',
-    name: 'BlogEdit',
-    component: BlogEdit
+    name: 'BlogAdd',
+    component: BlogEdit,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: '/blog/:blogId',
@@ -35,7 +39,10 @@ const routes = [
   {
     path: '/blog/:blogId/edit',
     name: 'BlogEdit',
-    component: BlogEdit
+    component: BlogEdit,
+    meta: {
+      requireAuth: true
+    }
   }
 
 ]
